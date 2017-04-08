@@ -257,7 +257,7 @@ function t(event){
         case "touchend":x[1] = touch.clientX;
                         y[1] = touch.clienty;
                         break;
-        case "touchmove":return 0;
+        default:return 0;
     }
     var i1=x[0]-x[1];
     var i2=x[1]-x[0];
