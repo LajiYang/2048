@@ -244,61 +244,80 @@ document.onkeyup=function(l){    //键盘事件函数
     score();
     bestScore();
 }
+//触摸事件
 
 function t(event){
-    event.preventDfault();
+    event.preventDefault();
     var touch = event.touches[0];
-    var x=[0,0];
-    var y=[0,0];
-    switch(touch.type){
-        case "touchstart":x[0] = touch.clientX;
-                          y[0] = touch.clienty;
+    var x0=0,y0=0;
+    var x = Number(touch.pageX); //页面触点X坐标  
+    var y = Number(touch.pageY); //页面触点Y坐标   
+    var fx;
+    switch(event.type){
+        case "touchstart":x0=x;
+                          y0=y;
                           break;
-        case "touchend":x[1] = touch.clientX;
-                        y[1] = touch.clienty;
-                        break;
-        default:return 0;
-    }
-    var i1=x[0]-x[1];
-    var i2=x[1]-x[0];
-    var j1=y[0]-y[1];
-    var j2=y[1]-y[0];
-    if((x[0]>x[1])&&((j1<10)||(j2<10))){ //左
-        for(var i=0;i<grid.length;i++){
-            left(grid,i);
-           // shuchu();
-        }     
-        for(var i=0;i<grid.length;i++)
-        {       
-            leftDoubling(grid,i,0);
-        }
-    }
-    if((x[0]<x[1])&&((j1<10)||(j2<10))){ //右
-        for(var i=0;i<grid.length;i++){
-            right(grid,i);
-            //shuchu();
-        }   
-        for(var i=0;i<grid.length;i++){
-            rightDoubling(grid,i,grid.length);
-        }
-    }
-    if((y[0]>y[1])&&((i1<10)||(i2<10))){  //下
-        for(var j=0;j<grid.length;j++){
-            down(grid,j);
-            //shuchu();
-        } 
-        for(var j=0;j<grid.length;j++){
-            downDoubling(grid,grid.length,j);
-        }
-    }
-    if((y[0]<y[1])&&((i1<10)||(i2<10))){ //上
-        for(var j=0;j<grid.length;j++){
-            up(grid,j);
-            //shuchu();
-        } 
-        for(var j=0;j<grid.length;j++){
-            upDoubling(grid,0,j);
-        }
+        case "touchmove":
+            if((y-startY)>0&&Math.abs((y-startY)/(x-startX))>1)
+            {
+                fx="down"; //下
+            }
+            else if(y-startY<0&&Math.abs((y-startY)/(x-startX))>1)
+            {
+                fx="up";  //上
+            }
+            else if((x-startX)>0&&Math.abs((y-startY)/(x-startX))<1)
+            {
+                fx="right";   //右
+            }
+            else
+            {
+                fx="left";    //左
+            }
+            break;
+        case "touchend":
+            if(fx=="down")
+            {
+                for(var j=0;j<grid.length;j++){
+                down(grid,j);
+                //shuchu();
+                } 
+                for(var j=0;j<grid.length;j++){
+                    downDoubling(grid,grid.length,j);
+                }
+            }
+            else if(fx=="up")
+            {
+                for(var j=0;j<grid.length;j++){
+                up(grid,j);
+                //shuchu();
+                } 
+                for(var j=0;j<grid.length;j++){
+                    upDoubling(grid,0,j);
+                }
+            }
+            else if(fx=="right")
+            {
+                for(var i=0;i<grid.length;i++){
+                right(grid,i);
+                //shuchu();
+                }   
+                for(var i=0;i<grid.length;i++){
+                    rightDoubling(grid,i,grid.length);
+                }
+            }
+            else if(fx=="left")
+            {
+                for(var i=0;i<grid.length;i++){
+                left(grid,i);
+            // shuchu();
+                }     
+                for(var i=0;i<grid.length;i++)
+                {       
+                    leftDoubling(grid,i,0);
+                }
+            }
+            break;
     }
     var fale=failure();
     if(fale){
@@ -315,8 +334,20 @@ function t(event){
     bestScore();
 }
 
-container.attachEvent=("touchstart",t);
-container.attachEvent=("touchend",t);
+//绑定事件  
+function touchEvent() {  
+    document.addEventListener('touchstart', t, false);  
+    document.addEventListener('touchmove', t, false);  
+    document.addEventListener('touchend', t, false);  
+}  
+
+//判断是否支持触摸事件  
+/*function isTouchDevice() 
+{  
+    //  document.getElementById("version").innerHTML = navigator.appVersion;  
+        document.createEvent("TouchEvent");  
+        bindEvent(); //绑定事件  
+}  */
 function reGame(){ //重新开始游戏
     var a=document.getElementsByTagName('a');
     var replay=a[0];
@@ -393,3 +424,4 @@ function bestScore(){  //用一个数组储存所有的成绩，数组最后一�
 addLoadEvent(newGame);
 addLoadEvent(hContent);
 addLoadEvent(reGame);
+addLoadEvent(touchEvent);
