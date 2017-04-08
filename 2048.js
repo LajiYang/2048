@@ -315,9 +315,8 @@ function t(event){
     bestScore();
 }
 
-container.addEventListener=("touchstart",t,false);
-container.addEventListener=("touchend",t,false);
-container.addEventListener=("touchmove",t,false);
+container.attachEvent=("touchstart",t);
+container.attachEvent=("touchend",t);
 function reGame(){ //重新开始游戏
     var a=document.getElementsByTagName('a');
     var replay=a[0];
