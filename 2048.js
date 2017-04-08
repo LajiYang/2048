@@ -336,9 +336,9 @@ function t(event){
 
 //绑定事件  
 function touchEvent() {  
-    document.addEventListener('touchstart', t, false);  
-    document.addEventListener('touchmove', t, false);  
-    document.addEventListener('touchend', t, false);  
+    container.addEventListener('touchstart', t, false);  
+    container.addEventListener('touchmove', t, false);  
+    container.addEventListener('touchend', t, false);  
 }  
 
 //判断是否支持触摸事件  
