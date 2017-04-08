@@ -258,15 +258,15 @@ function t(event){
                           y0=y;
                           break;
         case "touchmove":
-            if((y-startY)>0&&Math.abs((y-startY)/(x-startX))>1)
+            if((y-y0)>0&&Math.abs((y-y0)/(x-x0))>1)
             {
                 fx="down"; //下
             }
-            else if(y-startY<0&&Math.abs((y-startY)/(x-startX))>1)
+            else if(y-y0<0&&Math.abs((y-y0)/(x-x0))>1)
             {
                 fx="up";  //上
             }
-            else if((x-startX)>0&&Math.abs((y-startY)/(x-startX))<1)
+            else if((x-x0)>0&&Math.abs((y-y0)/(x-x0))<1)
             {
                 fx="right";   //右
             }
