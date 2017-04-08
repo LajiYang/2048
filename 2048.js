@@ -317,21 +317,22 @@ function t(event){
                     leftDoubling(grid,i,0);
                 }
             }
+            var fale=failure();
+            if(fale){
+                previousScore[previousScore.length]=grade;
+                var showGrade='you fail!the score is'+':'+grade+'!';
+                alert(showGrade);
+                bestScore();
+                return 0;
+            }    
+            add(grid);
+            hContent();
+            //shuchu();
+            score();
+            bestScore();
             break;
     }
-    var fale=failure();
-    if(fale){
-        previousScore[previousScore.length]=grade;
-        var showGrade='you fail!the score is'+':'+grade+'!';
-        alert(showGrade);
-        bestScore();
-        return 0;
-    }    
-    add(grid);
-    hContent();
-    //shuchu();
-    score();
-    bestScore();
+
 }
 
 //绑定事件  
