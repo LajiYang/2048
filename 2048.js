@@ -257,7 +257,6 @@ function t(event){
     switch(event.type){
         case "touchstart":x0=x;
                           y0=y;
-                          break;
         case "touchmove":
             var jdz=Math.abs((y-y0)/(x-x0))
             if((y-y0)>0&&(jdz>1))
@@ -276,7 +275,6 @@ function t(event){
             {
                 fx="left";    //左
             }
-            break;
         case "touchend":
             if(fx=="down")
             {
@@ -332,7 +330,6 @@ function t(event){
             //shuchu();
             score();
             bestScore();
-            break;
     }
 
 }
