@@ -274,7 +274,7 @@ function t(event){
             {
                 fx="left";    //左
             }
-            else break;
+            else fx=-1;
         case "touchend":
             if(fx=="down")
             {
