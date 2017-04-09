@@ -256,7 +256,6 @@ function t(event){
     switch(event.type){
         case "touchstart":x0=x;
                           y0=y;
-                          break;
         case "touchmove":
             var jdz=Math.abs((y-y0)/(x-x0))
             if(x<20||y<20) break;
