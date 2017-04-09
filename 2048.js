@@ -247,100 +247,103 @@ document.onkeyup=function(l){    //键盘事件函数
 //触摸事件
 var x0,y0;
 var fx=-1;
-function t(event){
-    event.preventDefault();
-        var touch = event.touches[0];
-    
+function tstart(event){
+        event.preventDefault();
+        var touch = event.touches[0];    
         var x = Number(touch.pageX); //页面触点X坐标  
         var y = Number(touch.pageY); //页面触点Y坐标   
-    switch(event.type){
-        case "touchstart":x0=x;
-                          y0=y;
-        case "touchmove":
-            var jdz=Math.abs((y-y0)/(x-x0))
-            if((y-y0)>50&&(jdz>1))
-            {
-                fx="down"; //up
-            }
-            else if((y-y0)<-50&&((jdz>1)))
-            {
-                fx="up";  //上
-            }
-            else if((x-x0)>50&&((jdz<1)))
-            {
-                fx="right";   //右
-            }
-            else if((x-x0)<-50&&((jdz<1)))
-            {
-                fx="left";    //左
-            }
-            else fx=-1;
-
-        case "touchend":
-            if(fx=="down")
-            {
-                for(var j=0;j<grid.length;j++){
-                down(grid,j);
-                //shuchu();
-                } 
-                for(var j=0;j<grid.length;j++){
-                    downDoubling(grid,grid.length,j);
-                }
-            }
-            else if(fx=="up")
-            {
-                for(var j=0;j<grid.length;j++){
-                up(grid,j);
-                //shuchu();
-                } 
-                for(var j=0;j<grid.length;j++){
-                    upDoubling(grid,0,j);
-                }
-            }
-            else if(fx=="right")
-            {
-                for(var i=0;i<grid.length;i++){
-                right(grid,i);
-                //shuchu();
-                }   
-                for(var i=0;i<grid.length;i++){
-                    rightDoubling(grid,i,grid.length);
-                }
-            }
-            else if(fx=="left")
-            {
-                for(var i=0;i<grid.length;i++){
-                left(grid,i);
-            // shuchu();
-                }     
-                for(var i=0;i<grid.length;i++)
-                {       
-                    leftDoubling(grid,i,0);
-                }
-            }
-            else break;
-            var fale=failure();
-            if(fale){
-                previousScore[previousScore.length]=grade;
-                var showGrade='you fail!the score is'+':'+grade+'!';
-                alert(showGrade);
-                bestScore();
-                return 0;
-            }    
-            add(grid);
-            hContent();
-            //shuchu();
-            score();
-            bestScore();
-    }
-
+        x0=x;
+        y0=y;
 }
+function tmove(event){
+    event.preventDefault();
+    fx=-1;
+    var touch = event.touches[0];
+    var x = Number(touch.pageX); //页面触点X坐标  
+    var y = Number(touch.pageY); //页面触点Y坐标   
+        var jdz=Math.abs((y-y0)/(x-x0))
+        if((y-y0)>50&&(jdz>1))
+        {
+            fx="down"; //up
+        }
+        else if((y-y0)<-50&&((jdz>1)))
+        {
+            fx="up";  //上
+        }
+        else if((x-x0)>50&&((jdz<1)))
+        {
+            fx="right";   //右
+        }
+        else if((x-x0)<-50&&((jdz<1)))
+        {
+            fx="left";    //左
+        }
+}
+function tend(event){
+    event.preventDefault();
+    if(fx=="down")
+    {
+        for(var j=0;j<grid.length;j++){
+        down(grid,j);
+        //shuchu();
+        } 
+        for(var j=0;j<grid.length;j++){
+            downDoubling(grid,grid.length,j);
+        }
+    }
+    else if(fx=="up")
+    {
+        for(var j=0;j<grid.length;j++){
+        up(grid,j);
+        //shuchu();
+        } 
+        for(var j=0;j<grid.length;j++){
+            upDoubling(grid,0,j);
+        }
+    }
+    else if(fx=="right")
+    {
+        for(var i=0;i<grid.length;i++){
+        right(grid,i);
+        //shuchu();
+        }   
+        for(var i=0;i<grid.length;i++){
+            rightDoubling(grid,i,grid.length);
+        }
+    }
+    else if(fx=="left")
+    {
+        for(var i=0;i<grid.length;i++){
+        left(grid,i);
+    // shuchu();
+        }     
+        for(var i=0;i<grid.length;i++)
+        {       
+            leftDoubling(grid,i,0);
+        }
+    }
+    else break;
+    var fale=failure();
+    if(fale){
+        previousScore[previousScore.length]=grade;
+        var showGrade='you fail!the score is'+':'+grade+'!';
+        alert(showGrade);
+        bestScore();
+        return 0;
+    }    
+    add(grid);
+    hContent();
+    //shuchu();
+    score();
+    bestScore();
+}
+
 
 //绑定事件  
 function touchEvent() {  
-    container.addEventListener('touchstart', t, false);  
-    container.addEventListener('touchmove', t, false);  
-    container.addEventListener('touchend', t, false);  
+    container.addEventListener('touchstart', tstart, false);  
+    container.addEventListener('touchmove', tmove, false);  
+    container.addEventListener('touchend', tend, false);  
 }  
 
 function reGame(){ //重新开始游戏
