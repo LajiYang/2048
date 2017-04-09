@@ -275,7 +275,6 @@ function t(event){
             {
                 fx="left";    //左
             }
-            else fx=-1;
     }
 }
 function tend(event){
@@ -314,7 +313,6 @@ function tend(event){
     {
         for(var i=0;i<grid.length;i++){
         left(grid,i);
-    // shuchu();
         }     
         for(var i=0;i<grid.length;i++)
         {       
