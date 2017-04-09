@@ -259,6 +259,7 @@ function t(event){
                           break;
         case "touchmove":
             var jdz=Math.abs((y-y0)/(x-x0))
+            if(x<20||y<20) break;
             if(((y-y0)>0)&&((jdz>1)))
             {
                 fx="down"; //up
