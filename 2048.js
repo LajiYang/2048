@@ -257,24 +257,8 @@ function t(event){
     switch(event.type){
         case "touchstart":x0=x;
                           y0=y;
-        case "touchmove":
-            
-            if()
-            {
-                fx="down"; //下
-            }
-            else if()
-            {
-                fx="up";  //上
-            }
-            else if()
-            {
-                fx="right";   //右
-            }
-            else
-            {
-                fx="left";    //左
-            }
+
+                break;
         case "touchend":
         var jdz=Math.abs((y-y0)/(x-x0))
             if((y-y0)>0&&(jdz>1))
