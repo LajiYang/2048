@@ -260,19 +260,19 @@ function t(event){
         case "touchmove":
             var jdz=Math.abs((y-y0)/(x-x0))
             if(jdz==1) break;
-            if(((y-y0)>0)&&(!(x-x0)||(jdz>1)))
+            if(((y-y0)>0)&&(!(x-x0)||(jdz>1.7)))
             {
                 fx="down"; //up
             }
-            else if((y-y0)<0&&(!(x-x0)||(jdz>1)))
+            else if(((y-y0)<0)&&(!(x-x0)||(jdz>1.7)))
             {
                 fx="up";  //上
             }
-            else if((x-x0)>0&&(jdz<1))
+            else if(((x-x0)>0)&&(jdz<0.6))
             {
                 fx="right";   //右
             }
-            else if((x-x0)<0&&(jdz<1))
+            else if(((x-x0)<0)&&(jdz<0.6))
             {
                 fx="left";    //左
             }
