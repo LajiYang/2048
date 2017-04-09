@@ -257,27 +257,28 @@ function t(event){
     switch(event.type){
         case "touchstart":x0=x;
                           y0=y;
-        case "touchmove":
+                          break;
+       /* case "touchmove":
             var jdz=Math.abs((y-y0)/(x-x0))
-            if(((y-y0)>0)&&(!(x-x0)||(jdz>1)))
+            if()
             {
                 fx="down"; //up
             }
-            else if((y-y0)<0&&(!(x-x0)||(jdz>1)))
+            else if()
             {
                 fx="up";  //上
             }
-            else if((x-x0)>0&&(!(y-y0)||(jdz<1)))
+            else if()
             {
                 fx="right";   //右
             }
-            else if((x-x0)<0&&(!(y-y0)||(jdz<1)))
+            else if()
             {
                 fx="left";    //左
             }
-            else break;
+            else break;*/
         case "touchend":
-            if(fx=="down")
+            if(((y-y0)>0)&&(!(x-x0)||(jdz>1)))
             {
                 for(var j=0;j<grid.length;j++){
                 down(grid,j);
@@ -287,7 +288,7 @@ function t(event){
                     downDoubling(grid,grid.length,j);
                 }
             }
-            else if(fx=="up")
+            else if((y-y0)<0&&(!(x-x0)||(jdz>1)))
             {
                 for(var j=0;j<grid.length;j++){
                 up(grid,j);
@@ -297,7 +298,7 @@ function t(event){
                     upDoubling(grid,0,j);
                 }
             }
-            else if(fx=="right")
+            else if((x-x0)>0&&(!(y-y0)||(jdz<1)))
             {
                 for(var i=0;i<grid.length;i++){
                 right(grid,i);
@@ -307,7 +308,7 @@ function t(event){
                     rightDoubling(grid,i,grid.length);
                 }
             }
-            else if(fx=="left")
+            else if((x-x0)<0&&(!(y-y0)||(jdz<1)))
             {
                 for(var i=0;i<grid.length;i++){
                 left(grid,i);
