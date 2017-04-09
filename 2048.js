@@ -335,7 +335,6 @@ function tend(event){
     score();
     bestScore();
     fx=-1;
-    }
 }
 
 
