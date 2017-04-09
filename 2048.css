@@ -4,8 +4,8 @@ html,body,div,h1,h2,p{
 }
 
 body{
-    width: 800px;
-    height: 660px;
+    width: 600px;
+    height: 420px;
     color: lightgray;
     margin: auto;
 }
@@ -68,7 +68,7 @@ body{
 }
 .game-container{
     width: 420px;
-    height: 422px;   
+    height: 100%;   
     margin: 0 auto;
     background-color: lightgray;
     border: 1px solid lightgray;
