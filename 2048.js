@@ -258,11 +258,11 @@ function t(event){
                           y0=y;
         case "touchmove":
             var jdz=Math.abs((y-y0)/(x-x0))
-            if(((y-y0)>0)&&((!(x-x0))||(jdz>1)))
+            if(((y-y0)>0)&&((jdz>1)))
             {
                 fx="down"; //up
             }
-            else if((y-y0)<0&&((!(x-x0))||(jdz>1)))
+            else if((y-y0)<0&&((jdz>1)))
             {
                 fx="up";  //上
             }
