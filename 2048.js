@@ -332,6 +332,7 @@ function t(event){
             //shuchu();
             score();
             bestScore();
+            fx=-1;
     }
 
 }
