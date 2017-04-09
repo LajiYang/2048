@@ -322,7 +322,7 @@ function tend(event){
             leftDoubling(grid,i,0);
         }
     }
-    else break;
+  else return 0;
     var fale=failure();
     if(fale){
         previousScore[previousScore.length]=grade;
