@@ -249,11 +249,12 @@ var x0=0,y0=0;
 var fx=-1;
 function t(event){
     event.preventDefault();
-    var touch = event.touches[0];
+    if(event.type!=touchend){
+        var touch = event.touches[0];
     
-    var x = Number(touch.pageX); //页面触点X坐标  
-    var y = Number(touch.pageY); //页面触点Y坐标   
-
+        var x = Number(touch.pageX); //页面触点X坐标  
+        var y = Number(touch.pageY); //页面触点Y坐标   
+    }
     switch(event.type){
         case "touchstart":x0=x;
                           y0=y;
