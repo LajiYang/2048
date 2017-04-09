@@ -258,16 +258,16 @@ function t(event){
         case "touchstart":x0=x;
                           y0=y;
         case "touchmove":
-            var jdz=Math.abs((y-y0)/(x-x0))
-            if((y-y0)>0&&(jdz>1))
+            
+            if()
             {
                 fx="down"; //下
             }
-            else if(y-y0<0&&(jdz>1))
+            else if()
             {
                 fx="up";  //上
             }
-            else if((x-x0)>0&&(jdz<1))
+            else if()
             {
                 fx="right";   //右
             }
@@ -276,7 +276,8 @@ function t(event){
                 fx="left";    //左
             }
         case "touchend":
-            if(fx=="down")
+        var jdz=Math.abs((y-y0)/(x-x0))
+            if((y-y0)>0&&(jdz>1))
             {
                 for(var j=0;j<grid.length;j++){
                 down(grid,j);
@@ -286,7 +287,7 @@ function t(event){
                     downDoubling(grid,grid.length,j);
                 }
             }
-            else if(fx=="up")
+            else if((y-y0)<0&&(jdz>1))
             {
                 for(var j=0;j<grid.length;j++){
                 up(grid,j);
@@ -296,7 +297,7 @@ function t(event){
                     upDoubling(grid,0,j);
                 }
             }
-            else if(fx=="right")
+            else if((x-x0)>0&&(jdz<1))
             {
                 for(var i=0;i<grid.length;i++){
                 right(grid,i);
@@ -306,7 +307,7 @@ function t(event){
                     rightDoubling(grid,i,grid.length);
                 }
             }
-            else if(fx=="left")
+            else if((x-x0)<0&&(jdz>1))
             {
                 for(var i=0;i<grid.length;i++){
                 left(grid,i);
@@ -341,13 +342,7 @@ function touchEvent() {
     container.addEventListener('touchend', t, false);  
 }  
 
-//判断是否支持触摸事件  
-/*function isTouchDevice() 
-{  
-    //  document.getElementById("version").innerHTML = navigator.appVersion;  
-        document.createEvent("TouchEvent");  
-        bindEvent(); //绑定事件  
-}  */
+
 function reGame(){ //重新开始游戏
     var a=document.getElementsByTagName('a');
     var replay=a[0];
