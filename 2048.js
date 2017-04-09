@@ -318,6 +318,7 @@ function t(event){
                     leftDoubling(grid,i,0);
                 }
             }
+            else break;
             var fale=failure();
             if(fale){
                 previousScore[previousScore.length]=grade;
