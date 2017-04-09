@@ -275,7 +275,7 @@ function t(event){
             {
                 fx="left";    //左
             }
-            else break;
+            else fx=-1;
     }
 function tend(event){
     event.preventDefault();
