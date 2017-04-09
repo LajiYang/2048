@@ -276,72 +276,75 @@ function t(event){
                 fx="left";    //左
             }
             else break;
-        case "touchend":
-            if(fx=="down")
-            {
-                for(var j=0;j<grid.length;j++){
-                down(grid,j);
-                //shuchu();
-                } 
-                for(var j=0;j<grid.length;j++){
-                    downDoubling(grid,grid.length,j);
-                }
-            }
-            else if(fx=="up")
-            {
-                for(var j=0;j<grid.length;j++){
-                up(grid,j);
-                //shuchu();
-                } 
-                for(var j=0;j<grid.length;j++){
-                    upDoubling(grid,0,j);
-                }
-            }
-            else if(fx=="right")
-            {
-                for(var i=0;i<grid.length;i++){
-                right(grid,i);
-                //shuchu();
-                }   
-                for(var i=0;i<grid.length;i++){
-                    rightDoubling(grid,i,grid.length);
-                }
-            }
-            else if(fx=="left")
-            {
-                for(var i=0;i<grid.length;i++){
-                left(grid,i);
-            // shuchu();
-                }     
-                for(var i=0;i<grid.length;i++)
-                {       
-                    leftDoubling(grid,i,0);
-                }
-            }
-            else break;
-            var fale=failure();
-            if(fale){
-                previousScore[previousScore.length]=grade;
-                var showGrade='you fail!the score is'+':'+grade+'!';
-                alert(showGrade);
-                bestScore();
-                return 0;
-            }    
-            add(grid);
-            hContent();
-            //shuchu();
-            score();
-            bestScore();
-            fx=-1;
     }
-
+function tend(event){
+    event.preventDefault();
+    if(fx=="down")
+    {
+        for(var j=0;j<grid.length;j++){
+        down(grid,j);
+        //shuchu();
+        } 
+        for(var j=0;j<grid.length;j++){
+            downDoubling(grid,grid.length,j);
+        }
+    }
+    else if(fx=="up")
+    {
+        for(var j=0;j<grid.length;j++){
+        up(grid,j);
+        //shuchu();
+        } 
+        for(var j=0;j<grid.length;j++){
+            upDoubling(grid,0,j);
+        }
+    }
+    else if(fx=="right")
+    {
+        for(var i=0;i<grid.length;i++){
+        right(grid,i);
+        //shuchu();
+        }   
+        for(var i=0;i<grid.length;i++){
+            rightDoubling(grid,i,grid.length);
+        }
+    }
+    else if(fx=="left")
+    {
+        for(var i=0;i<grid.length;i++){
+        left(grid,i);
+    // shuchu();
+        }     
+        for(var i=0;i<grid.length;i++)
+        {       
+            leftDoubling(grid,i,0);
+        }
+    }
+    else break;
+    var fale=failure();
+    if(fale){
+        previousScore[previousScore.length]=grade;
+        var showGrade='you fail!the score is'+':'+grade+'!';
+        alert(showGrade);
+        bestScore();
+        return 0;
+    }    
+    add(grid);
+    hContent();
+    //shuchu();
+    score();
+    bestScore();
+    fx=-1;
+    }
 }
+
+
 
 //绑定事件  
 function touchEvent() {  
     container.addEventListener('touchstart', t, false);  
     container.addEventListener('touchmove', t, false);  
-    container.addEventListener('touchend', t, false);  
+    container.addEventListener('touchend', tend, false);  
 }  
 
 function reGame(){ //重新开始游戏
