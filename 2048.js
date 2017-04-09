@@ -268,11 +268,11 @@ function t(event){
             {
                 fx="up";  //上
             }
-            else if((x-x0)>0&&(!(y-y0)||(jdz<1)))
+            else if((x-x0)>0&&(jdz<1))
             {
                 fx="right";   //右
             }
-            else if((x-x0)<0&&(!(y-y0)||(jdz<1)))
+            else if((x-x0)<0&&(jdz<1))
             {
                 fx="left";    //左
             }
