@@ -277,6 +277,7 @@ function t(event){
             }
             else fx=-1;
     }
+}
 function tend(event){
     event.preventDefault();
     if(fx=="down")
