@@ -261,11 +261,11 @@ function t(event){
             var jdz=Math.abs((y-y0)/(x-x0))
             if(((y-y0)>0)&&(!(x-x0)||(jdz>1)))
             {
-                fx="up"; //up
+                fx="down"; //up
             }
             else if((y-y0)<0&&(!(x-x0)||(jdz>1)))
             {
-                fx="down";  //上
+                fx="up";  //上
             }
             else if((x-x0)>0&&(!(y-y0)||(jdz<1)))
             {
