@@ -341,13 +341,6 @@ function touchEvent() {
     container.addEventListener('touchend', t, false);  
 }  
 
-//判断是否支持触摸事件  
-/*function isTouchDevice() 
-{  
-    //  document.getElementById("version").innerHTML = navigator.appVersion;  
-        document.createEvent("TouchEvent");  
-        bindEvent(); //绑定事件  
-}  */
 function reGame(){ //重新开始游戏
     var a=document.getElementsByTagName('a');
     var replay=a[0];
