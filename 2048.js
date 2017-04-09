@@ -263,7 +263,7 @@ function t(event){
             {
                 fx="down"; //up
             }
-            else if()
+            else if((y-y0)<0&&(!(x-x0)||(jdz>1)))
             {
                 fx="up";  //上
             }
