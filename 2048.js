@@ -245,7 +245,7 @@ document.onkeyup=function(l){    //键盘事件函数
     bestScore();
 }
 //触摸事件
-var x0=0,y0=0;
+var x0,y0;
 var fx=-1;
 function t(event){
     event.preventDefault();
