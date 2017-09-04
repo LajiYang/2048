@@ -54,7 +54,7 @@ function  hContent(){   //将数组表示在html内
     for(i=0;i<4;i++){
         for(j=0;j<4;j++){           
             var elmt=document.getElementById("d"+(4*i+j));
-            elmt.innerHTML='<div class="s'+grid[i][j]+'">'+grid[i][j]+'</div>';
+            elmt.innerHTML='<div class="s'+grid[i][j]+'"><p>'+grid[i][j]+'</p></div>';
 
         }
     }
